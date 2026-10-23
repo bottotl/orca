@@ -206,6 +206,7 @@
       "savedEnvironment": "保存済みの値 · 置き換えるには入力",
       "newEnvironment": "値",
       "removeEnvironment": "削除",
+      "environmentUnclosedQuote": "環境を保存するには引用符を閉じてください。",
       "loadingHost": "Agent設定を読み込み中…",
       "updateHost": "Agentの起動設定を編集するには、このサーバーを更新してください。",
       "readFailed": "Agent設定を読み込めませんでした。ホストへの接続を確認して再試行してください。",
@@ -4202,12 +4203,9 @@
             "successOne": "{{value0}} を更新しました",
             "successMany": "{{value0}} 件のスキルを更新しました",
             "successAria": "スキルを更新しました。クリックすると詳細を開きます。",
-            "errorLabel": "更新に失敗しました",
-            "errorTooltip": "スキルの更新に失敗しました — クリックすると詳細を表示します",
-            "errorAria": "スキルの更新に失敗しました。クリックすると詳細を開きます。",
-            "stoppingLabel": "更新を停止しています",
-            "stoppingTooltip": "スキルの更新を停止しています…",
-            "stoppingAria": "スキルの更新を停止しています。クリックすると詳細を開きます。"
+            "attentionAria": "一部のスキルの更新はスキップされました。クリックして詳細を開きます。",
+            "attentionLabel": "スキルに対応が必要",
+            "attentionTooltip": "一部のスキルの更新はスキップされました — クリックして詳細を表示"
           },
           "RuntimeHostStatusRow": {
             "previous_connection_closed": "以前の接続が閉じられました",
@@ -4756,34 +4754,7 @@
           "updateMany": "スキルを更新",
           "description": "Agent がこのバージョンの Orca の最新の手順に従うように、{{value0}} を更新してください。"
         },
-        "SkillFreshnessRow": {
-          "statusUpdateAvailable": "更新があります",
-          "statusCantUpdate": "スキップ済み",
-          "cantUpdateReason": "このスキルは Orca が安全に更新できない場所にインストールされているため、更新コマンドは変更しません。",
-          "chipCurrent": "現在",
-          "chipInaccessible": "アクセス不可",
-          "chipDuplicate": "重複",
-          "chipExternalLink": "外部リンク",
-          "chipBrokenLink": "リンク切れ",
-          "chipReadOnly": "読み取り専用",
-          "chipInRepo": "リポジトリ内",
-          "chipPluginCache": "プラグインキャッシュ",
-          "tipCurrent": "ここのスキルはすでに最新です。更新しても変更されません。",
-          "tipInaccessible": "Orca はここのスキルを読み取れなかったため（権限またはファイルのエラー）、確認も更新もできません。",
-          "tipDuplicate": "このスキルはメインとは別に、ここにもインストールされています。そのため 更新コマンドは到達できません。更新を許可するには削除してください。",
-          "tipExternalLink": "これは Orca のスキルフォルダーの外を指すショートカットです。更新では追跡されません。",
-          "tipBrokenLink": "これは存在しないものを指すショートカットです。削除しても問題ありません。",
-          "tipReadOnly": "ここのスキルは読み取り専用の場所にあるため、権限を変更するまで更新できません。",
-          "tipInRepo": "ここのスキルはグローバルスキルではなくプロジェクト内にあります。Orca はグローバルなものだけを更新します。",
-          "tipPluginCache": "ここのスキルはプラグインによって管理されています。代わりにプラグインを更新してください。",
-          "skippedReasonReadOnly": "このコピーは読み取り専用の場所にあるため、Orca は更新対象から除外しました。Orca が更新できるように、権限を変更してください。",
-          "skippedReasonInaccessible": "Orca はこのコピーを読み取れなかったため、このスキルを更新対象から除外しました。",
-          "skippedReasonInRepo": "これはグローバルスキルではなくプロジェクトスキルです。Orca はグローバルスキルのみを更新するため、更新対象から除外しました。",
-          "skippedReasonPluginCache": "このスキルはプラグインが管理しているため、Orca は更新対象から除外しました。代わりにプラグインを更新してください。",
-          "skippedReasonExternalLink": "このコピーは Orca のスキルフォルダー外を指すショートカットのため、Orca は更新対象から除外しました。",
-          "skippedReasonBrokenLink": "このコピーは存在しない対象へのショートカットのため、Orca は更新対象から除外しました。削除して問題ありません。",
-          "skippedReasonDuplicate": "これは別のコピーのため、更新は反映されません。コマンドはメインのコピーのみを更新します。このコピーを削除してからスキルを再インストールすると、この場所もメインに追従します。"
-        },
+        "SkillFreshnessRow": {},
         "SkillFreshnessUpdateDialog": {
           "title": "スキルを更新",
           "checking": "インストール済みの Orca スキルを確認中…",
@@ -4791,41 +4762,28 @@
           "updateOne": "1 件の更新があります",
           "updateMany": "{{value0}} 件の更新があります",
           "success": "インストール済みの Orca スキルはすべて最新です。",
-          "attention": "一部のインストール済み Orca スキルは自動的に更新できません。",
           "checkNow": "再確認",
           "close": "閉じる",
-          "blockedOne": "1 件のスキルは自動更新できません。",
-          "blockedMany": "{{value0}} 件のスキルは自動更新できません。",
-          "runningOne": "1 件のスキルを更新しています…",
-          "runningMany": "{{value0}} 件のスキルを更新しています…",
-          "runningDescription": "このウィンドウは閉じてかまいません。バックグラウンドで実行が続きます。",
           "progressAria": "スキルを更新しています",
-          "updatedOne": "1 件のスキルを更新しました",
-          "updatedMany": "{{value0}} 件のスキルを更新しました",
-          "updatedPartial": "{{value1}} 件中 {{value0}} 件のスキルを更新しました",
           "errorTitle": "更新が完了しませんでした",
-          "retry": "再試行",
-          "copyCommand": "コマンドをコピー",
-          "copied": "コピーしました",
-          "showLog": "ログを表示",
           "updating": "Updating…",
           "updateActionOne": "1 件のスキルを更新",
           "updateActionMany": "{{value0}} 件のスキルを更新",
           "done": "完了",
-          "stop": "停止",
-          "stopping": "Stopping…",
-          "stoppingHeadline": "更新を停止しています…",
-          "scanIncomplete": "Orca はプラグインで管理されるスキルの確認を完了できませんでした。",
-          "scanDepthLimit": "このフォルダーを確認する前に、プラグインスキャンの深度上限に達しました。",
-          "scanEntryLimit": "キャッシュの残りを確認する前に、プラグインスキャンのエントリ数上限に達しました。",
-          "scanCandidateLimit": "安全に確認できる数を超える同名のスキルフォルダーが見つかりました。",
-          "scanManifestLimit": "安全な上限を超えたため、このプラグインマニフェストをスキップしました。",
-          "scanOutsideRoot": "プラグインキャッシュの外部を指しているため、このプラグインパスをスキップしました。",
-          "scanIoErrorWithCode": "このプラグインパスを読み取れませんでした（{{value0}}）。",
-          "scanIoError": "このプラグインパスを読み取れませんでした。",
-          "scanIssueLimit": "スキップされたプラグインフォルダーが多すぎるため、個別に表示できません。",
-          "unselectedForeignOne": "Orca 以外からインストールされた 1 件のスキルは選択されていません。",
-          "unselectedForeignMany": "Orca 以外からインストールされた {{value0}} 件のスキルは選択されていません。"
+          "finishedWithProblems": "一部のスキルに対応が必要です",
+          "repair": "以前の更新が中断されました。更新すると修復されます。",
+          "hideFolders": "フォルダーを隠す",
+          "showFolders": "フォルダーを表示",
+          "upToDateMany": "{{value0}} 個のスキルは最新です。",
+          "upToDateOne": "{{value0}} は最新です。",
+          "updatedMany": "{{value0}} 個のスキルを更新しました",
+          "updatedOne": "1 個のスキルを更新しました",
+          "updatedSkipped": "{{value0}} · {{value1}} 件をスキップ",
+          "currentOne": "1 個のスキルは最新です",
+          "currentMany": "{{value0}} 個のスキルは最新です",
+          "noUpdates": "利用可能な更新はありません",
+          "updateServer": "サーバーの Orca を更新すると、Orca スキルを更新できます。",
+          "connectHost": "この SSH ホストに接続すると、Orca スキルを確認できます。"
         },
         "SkillFreshnessStatusPill": {
           "updateAvailable": "更新があります",
@@ -4834,18 +4792,13 @@
           "details": "詳細",
           "needsAttention": "スキルを確認",
           "checking": "確認中…",
-          "checkFailed": "チェックに失敗しました"
+          "checkFailed": "チェックに失敗しました",
+          "updateServer": "サーバーの Orca を更新してください",
+          "connectHost": "SSH ホストに接続してください"
         },
-        "SkillUpdateResultRows": {
-          "stillOutdated": "更新を実行しましたが、まだ最新ではありません。"
-        },
+        "SkillUpdateResultRows": {},
         "SkillUpdateRow": {
-          "oneLocation": "1 件の場所",
-          "manyLocations": "{{value0}} 件の場所",
-          "notFromOrca": "Orca 以外から導入",
-          "notFromOrcaSourceTip": "{{value0}} からインストールされています。選択すると Orca のバージョンに置き換えられます。",
-          "notFromOrcaNoRecordTip": "このコピーには Orca によるインストール記録がありません。選択すると Orca のバージョンに置き換えられます。",
-          "includeSkill": "{{value0}} を含める"
+          "replaceWithOrca": "Orca のコピーに置き換える（バックアップを保持）"
         },
         "host": {
           "local": "このマシン",
@@ -5221,6 +5174,34 @@
           "placementSummaryParts": "{{roots}} 間の {{parts}} を削除します。",
           "placementJoin": " と ",
           "retainedSource": "スキル自体は{{path}}のままです。"
+        },
+        "skillPlanOpCopy": {
+          "busy": "別のインストールがまだ実行中です",
+          "edited": "スキルが Orca の外部で編集されています",
+          "install": "インストール",
+          "installFor": "{{value0}} にインストール",
+          "installed": "インストール済み",
+          "keep": "変更なし",
+          "leftAsIs": "このコピーはそのまま保持されました",
+          "link": "リンク",
+          "linked": "リンク済み",
+          "needsAttention": "対応が必要",
+          "other": "別のスキルがこの名前を使用しています",
+          "replace": "置き換え",
+          "replacedWithBackup": "置き換えました · 元のコピーはバックアップとして保存されました",
+          "sharedNotCurrent": "共有コピーは Orca のものではありません",
+          "unwritable": "Orca はこのフォルダーに書き込めません",
+          "unreadable": "Orca はすべてのファイルを読み取れません",
+          "update": "更新",
+          "updated": "更新済み",
+          "write": "インストール",
+          "keepLink": "リンク、変更なし",
+          "repair": "修復",
+          "sharedFolder": "共有フォルダー",
+          "updateSkipped": "更新をスキップ: {{value0}}",
+          "updateAvailable": "更新があります",
+          "repairAvailable": "修復できます",
+          "installAvailable": "インストールできます"
         }
       },
       "sidebar": {
@@ -7093,7 +7074,8 @@
           "ee110e1830": "デフォルトの基本参照はありません"
         },
         "BrowserDefaultZoomSetting": {
-          "265597101f": "デフォルトのズーム"
+          "265597101f": "デフォルトのズーム",
+          "siteDefault": "まだズームしていないサイトのズーム。"
         },
         "BrowserHomePageSetting": {
           "d4ddcd0056": "保存",
@@ -14487,13 +14469,31 @@
             "sourceActionsUnavailable": "トランスクリプトのソースが利用できません。"
           },
           "AiVaultScanProgressStrip": {
+            "agentChecked": "{{agent}}: 履歴候補 {{total}} 件中 {{settled}} 件を確認済み",
             "fileCount_one": "{{value0}} 個のファイル",
             "fileCount_other": "{{value0}} 個のファイル",
             "databaseCount_one": "{{value0}} 個のデータベース",
             "databaseCount_other": "{{value0}} 個のデータベース",
             "scanning": "{{value0}}をスキャン中",
-            "checking": "確認中 {{value0}}",
+            "checking": "{{value0}} を確認中",
             "scanned": "{{value0}}をスキャン済み"
+          },
+          "run": {
+            "source": {
+              "control": {
+                "agent": {
+                  "action": {
+                    "start": {
+                      "git": {
+                        "operation": {
+                          "running": "実行中の Git 操作が完了するまで待ってください。"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       },
@@ -16358,6 +16358,9 @@
             },
             "sectionStale": {
               "notice": "このセクションの読み込み後に、ディスク上のファイルが変更されました。"
+            },
+            "notUtf8": {
+              "notice": "{{name}} は UTF-8 テキストではないため、自動保存は一時停止しています。UTF-8 に変換するには自分で保存してください。"
             }
           }
         },
@@ -16598,16 +16601,16 @@
                 "addQuickCommand": "クイックコマンドを追加",
                 "newQuickCommand": "新規クイックコマンド",
                 "splitChatRight": "チャットを右に分割",
-                "moveChatRight": "チャットを右に移動",
+                "newChatRight": "右に新しいチャット",
                 "chatPaneRight": "チャットペイン右",
                 "splitChatDown": "チャットを分割する",
-                "moveChatDown": "チャットを下に移動",
+                "newChatBelow": "下に新しいチャット",
                 "chatPaneBelow": "下のチャットペイン"
               },
               "splitChatRight": "右の分割チャット",
-              "splitChatRightDescription": "右側の分割ペインでアクティブなチャットを開きます。",
+              "splitChatRightDescription": "右側の分割ペインで新しいチャットを開きます。",
               "splitChatDown": "チャットを下に分割",
-              "splitChatDownDescription": "下の分割ペインでアクティブなチャットを開きます。"
+              "splitChatDownDescription": "下の分割ペインで新しいチャットを開きます。"
             }
           },
           "palette": {
@@ -16677,7 +16680,6 @@
             "ec75d0c412": "ブラウザの開発ツールを開く",
             "fc9be38f6f": "ページ要素に注釈を付ける",
             "fdfc7fe0ef": "ページ要素を取得する",
-            "a8f37f70c3": "ページの検査",
             "1b179ab561": "ページの URL をコピー",
             "f7ab83f7ed": "デフォルトのブラウザでページを開く",
             "0e080d820e": "リロード",
@@ -16740,7 +16742,21 @@
             "09a9489aa5": "表示",
             "2a4c4b8e1f": "コピー",
             "b71dc3d930": "再接続",
-            "fileUrlUnsupported": "このブラウザタブではローカルファイルを開くことができません。代わりに、ファイルで「プレビューを横に開く」を使用してください。"
+            "fileUrlUnsupported": "このブラウザタブではローカルファイルを開くことができません。代わりに、ファイルで「プレビューを横に開く」を使用してください。",
+            "addToDictionary": "辞書に追加",
+            "undo": "元に戻す",
+            "redo": "やり直す",
+            "cut": "切り取り",
+            "paste": "貼り付け",
+            "pasteAndMatchStyle": "スタイルを合わせて貼り付け",
+            "pasteAsPlainText": "プレーンテキストとして貼り付け",
+            "selectAll": "すべて選択",
+            "openImageInNewTab": "画像を新しいタブで開く",
+            "saveImage": "画像を保存",
+            "copyImage": "画像をコピー",
+            "copyImageAddress": "画像アドレスをコピー",
+            "searchSelection": "{{value0}} で「{{value1}}」を検索",
+            "inspect": "検証"
           },
           "BrowserToolbarMenu": {
             "429ef481f9": "キャンセル",
@@ -16765,7 +16781,16 @@
             "bf648471c5": "作成中…",
             "53bbe3dab4": "ファイルから {{value0}} 個の Cookie をインポートしました。",
             "c5f0e4d3b2a1": "{{value1}} ({{value2}}) から {{value0}} 件の Cookie をインポートしました。",
-            "d6a1f5e4c3b2": "{{value1}} から {{value0}} 件の Cookie をインポートしました。"
+            "d6a1f5e4c3b2": "{{value1}} から {{value0}} 件の Cookie をインポートしました。",
+            "zoom": "ズーム",
+            "zoomOut": "縮小",
+            "zoomIn": "拡大",
+            "resetZoom": "ズームをリセット",
+            "appearance": "外観",
+            "appearanceMatchOrca": "Orca に合わせる",
+            "appearanceLight": "ライト",
+            "appearanceDark": "ダーク",
+            "zoomPercent": "ズーム {{value0}}%"
           },
           "GrabConfirmationSheet": {
             "314a0aaa5b": "AIにアタッチする",
@@ -18238,6 +18263,21 @@
         "copyFailed": "リンクをコピーできませんでした。",
         "signingIn": "サインイン中…",
         "cancel": "キャンセル"
+      },
+      "plainSshTerminal": {
+        "open": "通常の SSH ターミナルを開く",
+        "unmanaged": "通常の SSH — 管理対象外。Orca ワークスペースではないため、ここでの Agent とタブは追跡されず、このターミナルは復元されません。閉じると SSH セッションが終了します。",
+        "ended": "ssh はコード {{code}} で終了しました。読み終えたらこのウィンドウを閉じてください。",
+        "title": "通常の SSH · {{host}}",
+        "minimize": "最小化",
+        "close": "閉じてセッションを終了",
+        "unknownTarget": "この SSH ホストは Orca に保存されなくなりました。",
+        "notBlocked": "Orca はこのホストに再び接続できるため、代わりにそのターミナルを使用してください。通常の SSH は、Orca がホスト上でセットアップできない間だけ使用します。",
+        "alreadyOpen": "別の Orca ウィンドウで、このホストへの通常の SSH ターミナルがすでに開いています。",
+        "endedBySignal": "ssh は停止しました（シグナル {{signal}}）。読み終えたらこのウィンドウを閉じてください。",
+        "cancelled": "この通常の SSH ターミナルは開始前に閉じられました。",
+        "terminalUnavailable": "Orca はここでターミナルを開けませんでした。",
+        "openHint": "Orca がホスト上でセットアップできない間も、ホストで作業を続けられます。"
       }
     },
     "i18n": {
@@ -18522,6 +18562,8 @@
         "settleEarlierMessage": "以前のメッセージが届くまで待つか、再試行してください。",
         "queueTooLarge": "キューで待機中のテキストが多すぎます。",
         "shrinkQueue": "キュー内のメッセージを削除するか、送信されるまで待ってから、もう一度お試しください。",
+        "messageTooLarge": "1 件のメッセージの上限である 256 KB を超えています。",
+        "shortenMessage": "短くするか分割してから、もう一度送信してください。",
         "optionRejected": "Agent はこの設定を受け入れませんでした。",
         "goalsUnsupported": "この Agent は目標に対応していません。",
         "agentRefused": "Agent がこれを拒否しました。",
@@ -18564,6 +18606,10 @@
         "uploadingFile": "{{name}} をアップロードしています…",
         "removeAttachment": "添付ファイルを削除する",
         "pastedImageLabel": "貼り付けた画像",
+        "pastedTextLabel": "貼り付けたテキスト",
+        "pasteNotSavedLabel": "貼り付けは保存されていません",
+        "pasteNotSaved": "この貼り付けは保存されませんでした。もう一度貼り付けるか、削除してください。",
+        "pastedTextTooLarge": "この貼り付けでメッセージが 1 件あたりの上限 256 KB を超えます。短くしてからもう一度貼り付けてください。",
         "draftNotSaved": "この下書きはまだ保存できていません。Orca は保存を再試行し続けます。",
         "imageNotBroughtBack": "{{name}} をこの下書きと一緒に復元できませんでした。もう一度添付するか、削除してください。",
         "pastedImageNotBroughtBack": "この貼り付けた画像をこの下書きと一緒に復元できませんでした。削除して、必要であればもう一度貼り付けてください。",
@@ -18651,7 +18697,8 @@
           "minimal": "最小",
           "medium": "中",
           "xhigh": "最高"
-        }
+        },
+        "imageUnavailable": "プレビューを利用できません"
       },
       "tool": {
         "running": "実行中…",
@@ -18833,7 +18880,9 @@
         "reason": "理由",
         "needsAccess": "アクセスが必要なパス",
         "plan": {
-          "file": "計画ファイル"
+          "file": "計画ファイル",
+          "reviewTitle": "提案されたプランをレビュー",
+          "refineHint": "プランを調整するとレビューが閉じ、変更内容を送信できます。"
         }
       },
       "launchPromptNotDelivered": "配信されませんでした — ターミナルを確認してください",
@@ -19117,6 +19166,10 @@
       },
       "claudeSignIn": {
         "signingIn": "サインイン中…"
+      },
+      "imagePreview": {
+        "fileActions": "ファイル操作",
+        "linkActions": "リンク操作"
       }
     },
     "tab": {
@@ -19809,6 +19862,27 @@
     },
     "request": {
       "pairedServerWorkspace": "このワークスペースはペアリングされたサーバーで実行されています。そのサーバーのブラウザタブを使用してください。"
+    },
+    "newTab": {
+      "emptyHint": "上で検索するかアドレスを入力してください。訪問したサイト、このワークスペースで実行中の開発サーバー、その PR と Issue がここに表示されます。",
+      "openServerFailed": "{{address}} を開けませんでした",
+      "removedFromHistory": "履歴から「{{title}}」を削除しました",
+      "removeSuggestion": "履歴から削除",
+      "state": {
+        "closed": "閉じました",
+        "draft": "下書き",
+        "merged": "マージ済み",
+        "open": "オープン"
+      },
+      "suggested": "おすすめ",
+      "thisWorkspace": "このワークスペース",
+      "undo": "元に戻す",
+      "checks": {
+        "failing": "チェック失敗",
+        "passing": "チェック成功",
+        "pending": "チェック待ち"
+      },
+      "runningElsewhere": "他のワークスペースで {{count}} 件実行中"
     }
   },
   "runtimeRpc": {
@@ -20343,7 +20417,12 @@
     }
   },
   "fileSearch": {
-    "failed": "検索失敗。もう一度お試しください"
+    "failed": "検索失敗。もう一度お試しください",
+    "filters": {
+      "toggle": "検索の詳細を切り替える",
+      "active": "{{count}} 件が有効"
+    },
+    "noResults": "結果がありません。別の検索を試すか、フィルターを調整してください。"
   },
   "csv": {
     "detectingDelimiter": "デリミタを検出中…",
@@ -20660,5 +20739,63 @@
       "loading": "言語を読み込み中…",
       "saving": "言語を保存中…"
     }
+  },
+  "resourceManager": {
+    "pty": {
+      "bound": "タブあり",
+      "unbound": "タブなし",
+      "unavailable": "利用不可",
+      "ownerPresent": "あり",
+      "ownerAbsent": "なし",
+      "ownerUnknown": "不明",
+      "sessionId": "Orca セッション ID",
+      "incarnation": "世代",
+      "workspace": "ワークスペース",
+      "cwd": "最後に報告された cwd",
+      "binding": "タブ",
+      "agentOwnership": "Agent 所有権の証拠",
+      "observationTime": "観測時刻",
+      "pid": "PID",
+      "idCopied": "Orca セッション ID をコピーしました",
+      "copyFailed": "Orca セッション ID をコピーできませんでした",
+      "detailsNamed": "{{terminal}} の詳細",
+      "goToTerminal": "ターミナルに移動",
+      "copyId": "Orca セッション ID をコピー",
+      "refreshBeforeEnd": "PTY を更新するまで終了できません。",
+      "endUnsupported": "このターミナルは終了できません。ホストが必要な安全チェックをサポートしていません。タブまたはホスト上で閉じてください。",
+      "checkingTabs": "タブを確認中…",
+      "endTitle": "{{terminal}} を終了しますか？",
+      "endDescription": "このターミナルとその子プロセスを終了します。未保存の作業が失われる可能性があります。",
+      "lastProcess": "最後に確認されたプロセス: {{process}}",
+      "cancel": "キャンセル",
+      "ending": "終了中…",
+      "end": "ターミナルを終了",
+      "unassigned": "未割り当て",
+      "thisComputer": "このコンピューター",
+      "localOwnedCount_one": "このコンピューターの Orca PTY {{count}} 個",
+      "localOwnedCount_other": "このコンピューターの Orca PTY {{count}} 個",
+      "withoutTab": "タブなし {{count}} 個",
+      "observedTime": "最終観測: {{time}}",
+      "failed": "検証不可: ローカルターミナルを更新できませんでした。最後に観測されたターミナルを表示しています。",
+      "retry": "再試行",
+      "loading": "ターミナルを読み込み中…",
+      "noLocalOrcaPtys": "ローカル Orca PTY はありません",
+      "openNamed": "{{terminal}} を開く",
+      "endNamed": "{{terminal}} を終了",
+      "endShort": "終了",
+      "endHint": "このターミナルとその子プロセスを終了します。",
+      "claimed": "このターミナルは Agent が所有しています。再試行する前に更新してください。",
+      "attached": "このターミナルにはクライアントが接続されています。再試行する前に更新してください。",
+      "unverifiableEnd": "検証不可: ホストが結果を確認できませんでした。ターミナルはまだ実行中の可能性があります。"
+    },
+    "resources": "リソース",
+    "ptys": "PTY",
+    "localDaemonScope": "これはこのコンピューター上のターミナルに影響します。",
+    "countUnavailable": "ターミナル数を取得できません",
+    "openToObserve": "リソースを開いてターミナルセッションを監視します。",
+    "refresh": "更新",
+    "restartLocal": "ローカルデーモンを再起動",
+    "killAllLocal": "すべてのローカルセッションを終了",
+    "killFailed": "ターミナルを終了できませんでした。最後に観測されたセッションを保持しています。"
   }
 }

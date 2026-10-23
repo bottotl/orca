@@ -1,4 +1,5 @@
 import { useSkillFreshness } from '@/hooks/useSkillFreshness'
+import { useActiveProjectSkillRuntime } from '@/hooks/useActiveProjectSkillRuntime'
 import { translate } from '@/i18n/i18n'
 import { Button } from '@/components/ui/button'
 import { IntegrationStatusPill } from '@/components/integration-status-pill'
@@ -7,6 +8,7 @@ import { AlertTriangle, ChevronRight } from 'lucide-react'
 import {
   getSkillFreshnessDisplayStatus,
   hasSkillCopyNeedingAttention,
+  skillPlanHasDetails,
   type SkillFreshnessDisplayStatus
 } from '@/lib/skill-freshness-display-status'
 import { requestSkillFreshnessUpdateDialog } from './skill-freshness-update-dialog'
@@ -46,34 +48,47 @@ function statusPill(status: SkillFreshnessDisplayStatus): React.JSX.Element {
   )
 }
 
-// Why: the setup rails' Installed pill is presence-only. Freshness knows more — that
-// a safe update exists, that every copy is current, or that a copy is out of date
-// somewhere the update cannot reach — and green must never stand in for that last
-// case, which is real drift the user would otherwise have no way to see.
+// Why: the setup rails' Installed pill is presence-only. The plan knows more — that an
+// update exists, that every copy is current, or that a copy is left for the user — and
+// green must never stand in for that last case.
 export function SkillFreshnessStatusPill({ skillName }: { skillName: string }): React.JSX.Element {
-  const { inventory, loading, error } = useSkillFreshness()
-  if (loading && !inventory) {
+  const { plan, unsupported, loading, error } = useSkillFreshness(
+    useActiveProjectSkillRuntime().bundledSkillTarget
+  )
+  if (unsupported) {
+    return (
+      <IntegrationStatusPill tone="neutral">
+        {unsupported === 'connect-host'
+          ? translate(
+              'auto.components.skills.SkillFreshnessStatusPill.connectHost',
+              'Connect the SSH host'
+            )
+          : translate(
+              'auto.components.skills.SkillFreshnessStatusPill.updateServer',
+              'Update Orca on the server'
+            )}
+      </IntegrationStatusPill>
+    )
+  }
+  if (loading && !plan) {
     return (
       <IntegrationStatusPill tone="neutral">
         {translate('auto.components.skills.SkillFreshnessStatusPill.checking', 'Checking...')}
       </IntegrationStatusPill>
     )
   }
-  if (error && !inventory) {
+  if (error && !plan) {
     return (
       <IntegrationStatusPill tone="attention">
         {translate('auto.components.skills.SkillFreshnessStatusPill.checkFailed', 'Check failed')}
       </IntegrationStatusPill>
     )
   }
-  const status = getSkillFreshnessDisplayStatus(inventory, skillName)
-  // Why: the dialog lists every placement, so Details is offered whenever a placement
-  // is what drove the status — an available update, or a copy that blocked one.
-  const hasDetails = status === 'update-available' || status === 'needs-attention'
-  // Why: the badge alone can't say which copies are wrong, and the reasons only read
-  // correctly beside the locations they describe. Marking the way in is enough here —
-  // the dialog does the explaining, with every location and cause it knows about.
-  const needsAttention = hasSkillCopyNeedingAttention(inventory, skillName)
+  const status = getSkillFreshnessDisplayStatus(plan, skillName)
+  // Why: the dialog lists every location and what the update does there, so Details is
+  // offered whenever the plan has anything for this skill, including an agent to link.
+  const hasDetails = skillPlanHasDetails(plan, skillName)
+  const needsAttention = hasSkillCopyNeedingAttention(plan, skillName)
   return (
     <span className="inline-flex items-center gap-2">
       {statusPill(status)}
